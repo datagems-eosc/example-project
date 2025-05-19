@@ -22,6 +22,8 @@ git push -u origin main
 
 ### 2. Set Up Your Development Environment
 
+#### Linux
+
 If you do not have `uv` installed, you can install it with
 
 ```bash
@@ -35,6 +37,28 @@ Then, install the environment and the pre-commit hooks with
 
 ```bash
 make install
+```
+
+This will also generate your `uv.lock` file
+
+#### Windows
+
+If you do not have `uv` installed, you can install it with
+
+```bash
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+Or following the instructions [here](docs.astral.sh/uv/getting-started/installation/#installation-methods).
+
+After executing the command above, you will need to restart your shell.
+
+`uv` is a python package similar to `poetry`.
+
+Then, install the environment and the pre-commit hooks with
+
+```bash
+uv sync
+uv run pre-commit install
 ```
 
 This will also generate your `uv.lock` file
@@ -56,7 +80,6 @@ git add .
 git commit -m 'Fix formatting issues'
 git push origin main
 ```
-
 ---
 
 The uv-python cookiecutter was originally created in [https://github.com/fpgmaas/cookiecutter-uv](https://github.com/fpgmaas/cookiecutter-uv).
